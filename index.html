@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debanshu Ghosh | Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;300;400;600&family=Orbitron:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-bg: #1d1d1f;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent: #2997ff;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h2.section-title {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(180deg, #fff, #555);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.2;
+            /* Initial state for animation */
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 50px 0px;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        /* --- 1. HOME SECTION --- */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-bottom: 18vh;
+            /* Shifts content up */
+        }
+
+        .profile-img-wrapper {
+            width: 200px;
+            height: 450px;
+            /* Stronger Portrait Ratio */
+            border-radius: 20px;
+            /* Rectangle with rounded corners */
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 30px rgba(41, 151, 255, 0.6), inset 0 0 20px rgba(41, 151, 255, 0.4);
+            /* Glowing Border */
+            border: 2px solid rgba(41, 151, 255, 0.8);
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .profile-img-wrapper:hover {
+            box-shadow: 0 0 50px rgba(41, 151, 255, 0.9);
+            transform: scale(0.9);
+        }
+
+        .profile-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-name {
+            font-size: 5rem;
+            font-family: 'Orbitron', sans-serif;
+            /* New Tech Font */
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            /* Animation handled by inner span for scale safety */
+        }
+
+        .glow-text {
+            display: inline-block;
+            text-shadow: 0 0 20px rgba(41, 151, 255, 0.6), 0 0 40px rgba(41, 151, 255, 0.3);
+            color: #fff;
+        }
+
+        .hero-greeting {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            font-family: 'Exo 2', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* Dynamic Island Contact Bar */
+        .dynamic-island-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .dynamic-island {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            /* Increased gap */
+            background: rgba(255, 255, 255, 0.1);
+            /* More visible glass */
+            backdrop-filter: blur(25px);
+            /* Stronger blur */
+            -webkit-backdrop-filter: blur(25px);
+            padding: 20px 40px;
+            /* Larger padding per request */
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            /* Deep glass depth */
+            box-shadow: 0 0 20px var(--text-primary);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dynamic-island:hover {
+            padding: 20px 40px;
+            /* Slight expansion */
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .social-icon {
+            color: #ddd;
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.5) translateY(-5px);
+            color: #fff;
+        }
+
+        /* Tooltip-like glow */
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 5px;
+            background: currentColor;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .social-icon:hover::after {
+            opacity: 1;
+            bottom: -15px;
+        }
+
+        .typewriter-container {
+            font-size: 2rem;
+            color: var(--accent);
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(41, 151, 255, 0.8), 0 0 20px rgba(41, 151, 255, 0.4);
+            min-height: 1.6em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* --- 2. SKILLS SECTION (Floating & Scattered) --- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.03);
+            /* Equal width and height */
+            width: 160px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 1rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+
+            /* Floating Animation Default */
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Unique Colors & Offsets for "Here and There" look */
+
+        /* Card 1: Blue - Offset Down */
+        .skill-card:nth-child(1) {
+            border-color: #2997ff;
+            box-shadow: 0 0 20px rgba(41, 151, 255, 0.2), inset 0 0 10px rgba(41, 151, 255, 0.1);
+            margin-top: 40px;
+            animation-delay: 0s;
+        }
+
+        .skill-card:nth-child(1) i {
+            color: #2997ff;
+            text-shadow: 0 0 10px #2997ff;
+        }
+
+        /* Card 2: Yellow - Offset Up */
+        .skill-card:nth-child(2) {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), inset 0 0 10px rgba(255, 215, 0, 0.1);
+            margin-top: -20px;
+            animation-delay: 1s;
+        }
+
+        .skill-card:nth-child(2) i {
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        /* Card 3: Green - Offset Down */
+        .skill-card:nth-child(3) {
+            border-color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2), inset 0 0 10px rgba(0, 255, 136, 0.1);
+            margin-top: 50px;
+            animation-delay: 2s;
+        }
+
+        .skill-card:nth-child(3) i {
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        /* Card 4: Purple - Offset Up */
+        .skill-card:nth-child(4) {
+            border-color: #bf00ff;
+            box-shadow: 0 0 20px rgba(191, 0, 255, 0.2), inset 0 0 10px rgba(191, 0, 255, 0.1);
+            margin-top: -30px;
+            animation-delay: 3s;
+        }
+
+        .skill-card:nth-child(4) i {
+            color: #bf00ff;
+            text-shadow: 0 0 10px #bf00ff;
+        }
+
+        /* Card 5: Red - Neutral */
+        .skill-card:nth-child(5) {
+            border-color: #ff2950;
+            box-shadow: 0 0 20px rgba(255, 41, 80, 0.2), inset 0 0 10px rgba(255, 41, 80, 0.1);
+            margin-top: 10px;
+            animation-delay: 1.5s;
+        }
+
+        .skill-card:nth-child(5) i {
+            color: #ff2950;
+            text-shadow: 0 0 10px #ff2950;
+        }
+
+        /* Card 6: Cyan - Offset Down */
+        .skill-card:nth-child(6) {
+            border-color: #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+            margin-top: 60px;
+            animation-delay: 2.5s;
+        }
+
+        .skill-card:nth-child(6) i {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Card 7: Pink - Offset Up */
+        .skill-card:nth-child(7) {
+            border-color: #ff00cc;
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.2), inset 0 0 10px rgba(255, 0, 204, 0.1);
+            margin-top: -10px;
+            animation-delay: 0.5s;
+        }
+
+        .skill-card:nth-child(7) i {
+            color: #ff00cc;
+            text-shadow: 0 0 10px #ff00cc;
+        }
+
+        /* Card 8: VS Code (Blue) */
+        .skill-card:nth-child(8) {
+            border-color: #007acc;
+            box-shadow: 0 0 20px rgba(0, 122, 204, 0.2), inset 0 0 10px rgba(0, 122, 204, 0.1);
+            margin-top: 30px;
+            animation-delay: 4s;
+        }
+
+        .skill-card:nth-child(8) i {
+            color: #007acc;
+            text-shadow: 0 0 10px #007acc;
+        }
+
+        /* Card 9: MongoDB (Green) */
+        .skill-card:nth-child(9) {
+            border-color: #47A248;
+            box-shadow: 0 0 20px rgba(71, 162, 72, 0.2), inset 0 0 10px rgba(71, 162, 72, 0.1);
+            margin-top: -20px;
+            animation-delay: 1.2s;
+        }
+
+        .skill-card:nth-child(9) i {
+            color: #47A248;
+            text-shadow: 0 0 10px #47A248;
+        }
+
+
+        .skill-card:hover {
+            transform: scale(1.15) rotate(5deg) !important;
+            /* Override float transform on hover */
+            z-index: 10;
+            background: #252527;
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            /* Color set by specific rules above */
+        }
+
+        /* --- 3. EDUCATION SECTION (Neon Timeline & 3D Cards) --- */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Glowing Central Line */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(180deg, #00ff88, #2997ff, #ff2950);
+            box-shadow: 0 0 15px rgba(41, 151, 255, 0.5);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            padding: 20px 50px;
+            position: relative;
+            background-color: transparent;
+            width: 50%;
+            opacity: 0;
+            z-index: 1;
+            /* Ensure item (and its pseudo-elements) sits above the line (z-index: 0) */
+        }
+
+        /* Pulsing Central Node */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            right: -12px;
+            background-color: #000;
+            border: 4px solid #fff;
+            top: 30px;
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: pulse-node 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-node {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+
+            50% {
+                transform: scale(1.2);
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .right::after {
+            left: -12px;
+        }
+
+        /* 3D Glass Cards */
+        /* 3D Glass Cards (Sleek Redesign) */
+        .timeline-content {
+            padding: 20px 25px;
+            /* Reduced from 30px */
+            background: rgba(255, 255, 255, 0.02);
+            /* Lighter glass */
+            border-radius: 15px;
+            /* Thinner radius */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: transform 0.3s ease, background 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            /* Slight light-up */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-content p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* Specific Card Themes */
+
+        /* 1. Zoology - Green Organic Glow */
+        .timeline-item:nth-child(1) .timeline-content {
+            border-bottom: 4px solid #00ff88;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2), inset 0 0 20px rgba(0, 255, 136, 0.05);
+        }
+
+        .timeline-item:nth-child(1) h3 {
+            color: #00ff88;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        /* --- 5. INTERESTS (Misarranged & Glowing) --- */
+        #interests {
+            margin-top: 100px;
+            margin-bottom: 50px;
+        }
+
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 35px;
+            /* Increased from 20px to prevent overlap */
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .chip-gap-lg {
+            gap: 50px;
+            /* Larger gap to prevent collision overlap */
+        }
+
+        .chip {
+            /* Bubble Base */
+            background: rgba(255, 255, 255, 0.02);
+            padding: 15px 30px;
+            /* Fatter Shape */
+            border-radius: 50px;
+            font-size: 1rem;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* Subtle outer definition */
+
+            /* Volumetric "Bubble" Effect */
+            box-shadow:
+                inset 0 0 15px rgba(255, 255, 255, 0.1),
+                /* Inner depth */
+                inset 5px 5px 10px rgba(255, 255, 255, 0.2),
+                /* Specular Highlight Top-Left */
+                inset -5px -5px 10px rgba(0, 0, 0, 0.3),
+                /* Shadow Bottom-Right */
+                0 5px 15px rgba(0, 0, 0, 0.2);
+            /* Drop Shadow */
+
+            backdrop-filter: blur(4px);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: default;
+            overflow: hidden;
+        }
+
+        /* Shine Reflection */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            /* Alexa Ring Gradient (Cyan to Blue) */
+            background: linear-gradient(90deg, #00C6FF, #0072FF);
+            margin: 10px auto 0;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+            /* Glowing Ring Effect */
+        }
+
+        .chip::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            width: 20px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            filter: blur(2px);
+            transform: rotate(-45deg);
+        }
+
+        .chip i {
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 2px currentColor);
+        }
+
+        /* Unique Glows & "Misarranged" Offsets - Updated for Bubble Tint */
+        .chip:nth-child(1) {
+            border-color: rgba(255, 0, 85, 0.5);
+            box-shadow: inset 0 0 20px rgba(255, 0, 85, 0.2), 0 0 10px rgba(255, 0, 85, 0.3);
+            transform: rotate(-2deg) translateY(5px);
+        }
+
+        .chip:nth-child(1) i {
+            color: #ff0055;
+        }
+
+        .chip:nth-child(2) {
+            border-color: rgba(0, 255, 204, 0.5);
+            box-shadow: inset 0 0 20px rgba(0, 255, 204, 0.2), 0 0 10px rgba(0, 255, 204, 0.3);
+            transform: rotate(3deg) translateY(-5px);
+        }
+
+        .chip:nth-child(2) i {
+            color: #00ffcc;
+        }
+
+        .chip:nth-child(3) {
+            border-color: rgba(255, 204, 0, 0.5);
+            box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.2), 0 0 10px rgba(255, 204, 0, 0.3);
+            transform: rotate(-1deg) translateY(8px);
+        }
+
+        .chip:nth-child(3) i {
+            color: #ffcc00;
+        }
+
+        .chip:nth-child(4) {
+            border-color: rgba(204, 0, 255, 0.5);
+            box-shadow: inset 0 0 20px rgba(204, 0, 255, 0.2), 0 0 10px rgba(204, 0, 255, 0.3);
+            transform: rotate(2deg) translateY(-3px);
+        }
+
+        .chip:nth-child(4) i {
+            color: #cc00ff;
+        }
+
+        .chip:nth-child(5) {
+            border-color: rgba(0, 136, 255, 0.5);
+            box-shadow: inset 0 0 20px rgba(0, 136, 255, 0.2), 0 0 10px rgba(0, 136, 255, 0.3);
+            transform: rotate(-3deg) translateY(6px);
+        }
+
+        .chip:nth-child(5) i {
+            color: #0088ff;
+        }
+
+        .chip:nth-child(6) {
+            border-color: rgba(255, 85, 0, 0.5);
+            box-shadow: inset 0 0 20px rgba(255, 85, 0, 0.2), 0 0 10px rgba(255, 85, 0, 0.3);
+            transform: rotate(1deg) translateY(-4px);
+        }
+
+        .chip:nth-child(6) i {
+            color: #ff5500;
+        }
+
+        .chip:nth-child(7) {
+            border-color: rgba(0, 255, 0, 0.5);
+            box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.2), 0 0 10px rgba(0, 255, 0, 0.3);
+            transform: rotate(-2deg) translateY(7px);
+        }
+
+        .chip:nth-child(7) i {
+            color: #00ff00;
+        }
+
+        .chip:nth-child(8) {
+            border-color: rgba(170, 0, 255, 0.5);
+            box-shadow: inset 0 0 20px rgba(170, 0, 255, 0.2), 0 0 10px rgba(170, 0, 255, 0.3);
+            transform: rotate(2deg) translateY(-2px);
+        }
+
+        .chip:nth-child(8) i {
+            color: #aa00ff;
+        }
+
+        /* General for Languages (More than 8) */
+        .chip:nth-child(n+9) {
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .chip:hover {
+            transform: scale(1.15) rotate(0deg) !important;
+            box-shadow: inset 0 0 30px currentColor, 0 0 20px currentColor;
+            /* INTENSE glow inside out */
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 100 !important;
+        }
+
+        /* Education Styles (Existing) */
+        /* 1. Zoology - Nature Green Glow */
+        .timeline-item:nth-child(1) .timeline-content {
+            border-bottom: 4px solid #00ff88;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2), inset 0 0 20px rgba(0, 255, 136, 0.05);
+        }
+
+        .timeline-item:nth-child(1) h3 {
+            color: #00ff88;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .timeline-item:nth-child(1)::after {
+            border-color: #00ff88;
+            box-shadow: 0 0 15px #00ff88;
+        }
+
+        /* 2. Diploma IT - Tech Blue Glow */
+        .timeline-item:nth-child(2) .timeline-content {
+            border-bottom: 4px solid #2997ff;
+            box-shadow: 0 10px 30px rgba(41, 151, 255, 0.2), inset 0 0 20px rgba(41, 151, 255, 0.05);
+        }
+
+        .timeline-item:nth-child(2) h3 {
+            color: #2997ff;
+            text-shadow: 0 0 15px rgba(41, 151, 255, 0.4);
+        }
+
+        .timeline-item:nth-child(2)::after {
+            border-color: #2997ff;
+            box-shadow: 0 0 15px #2997ff;
+        }
+
+        /* 3. Cyber Security - Red Warning Glow */
+        .timeline-item:nth-child(3) .timeline-content {
+            border-bottom: 4px solid #ff2950;
+            box-shadow: 0 10px 30px rgba(255, 41, 80, 0.2), inset 0 0 20px rgba(255, 41, 80, 0.05);
+        }
+
+        .timeline-item:nth-child(3) h3 {
+            color: #ff2950;
+            text-shadow: 0 0 15px rgba(255, 41, 80, 0.4);
+        }
+
+        .timeline-item:nth-child(3)::after {
+            border-color: #ff2950;
+            box-shadow: 0 0 15px #ff2950;
+        }
+
+
+
+        /* --- 4. CERTIFICATIONS (Glass, Static Glow, Stars) --- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            perspective: 2000px;
+            margin-top: 50px;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.4s ease;
+            opacity: 0;
+            backdrop-filter: blur(12px);
+            /* Glassmorphism Border (Reduced to match Projects) */
+            /* Glassmorphism Border (Thicker) */
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.05);
+            text-align: left;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Neon Glow Line for Certs (Same as Projects) */
+        .cert-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 1;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            /* White Border Glow */
+            border-color: #ffffff;
+            /* Intense White Glow + Inset Shine */
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Twinkling Stars */
+        .cert-star {
+            position: absolute;
+            color: #fff;
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 5px #fff);
+            animation: twinkle 2s infinite ease-in-out;
+            z-index: 2;
+        }
+
+        .cert-star.top-left {
+            top: 10px;
+            left: 10px;
+            animation-delay: 0s;
+        }
+
+        .cert-star.top-right {
+            top: 10px;
+            right: 10px;
+            animation-delay: 0.5s;
+        }
+
+        .cert-star.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            animation-delay: 1s;
+        }
+
+        .cert-star.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(0.8) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2) rotate(45deg);
+            }
+        }
+
+        /* --- 4. PROJECTS (Glassmorphic Cards) --- */
+        .project-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            /* Glassmorphism Base */
+            background: rgba(255, 255, 255, 0.03);
+            border: 0.5px solid rgba(255, 255, 255, 0.6);
+            /* Brighter static border */
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+            /* For animation */
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+            /* White Border Glow */
+            border-color: #ffffff;
+        }
+
+        /* Neon Glow Line (Static) */
+        .project-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 1;
+            /* Always visible */
+        }
+
+        .project-item.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .project-img {
+            flex: 1;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease;
+        }
+
+        .project-item:hover .project-img {
+            transform: scale(1.03);
+        }
+
+        .project-img img {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .project-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .project-content h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px var(--accent);
+            z-index: 1;
+        }
+
+        .project-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--accent);
+            z-index: -1;
+            transition: width 0.3s ease;
+        }
+
+        .project-btn:hover {
+            color: #000;
+        }
+
+        .project-btn:hover::before {
+            width: 100%;
+        }
+
+        .cert-img-box {
+            height: 180px;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* Ensure bottom corners are straight */
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .cert-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensure image respects the straight corners */
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .cert-info {
+            padding: 20px;
+            background: transparent;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cert-info h3 {
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .cert-info p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .cert-info a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cert-info a:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .no-verify {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        /* Modal Styles */
+        #cert-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            /* For GSAP fade in */
+        }
+
+        #cert-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+        }
+
+        #cert-modal-close {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #cert-modal-close:hover {
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            h2.section-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-name {
+                font-size: 3rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item.left,
+            .timeline-item.right {
+                text-align: left;
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 19px;
+            }
+
+            /* Adjusted center */
+            .right::after {
+                left: 19px;
+            }
+
+            .project-item,
+            .project-item.reverse {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .project-img {
+                width: 100%;
+                height: 250px;
+            }
+
+            /* Tools Grid Mobile Adjustment */
+            #tools-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                justify-items: center;
+                padding: 0 10px;
+            }
+
+            #tools-grid .skill-card {
+                margin: 0 !important;
+                /* Remove scatter offsets */
+                width: 100%;
+                max-width: 160px;
+                height: 160px;
+                /* Fixed height for consistency */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="star-canvas"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <section id="home">
+        <div class="profile-img-wrapper" id="hero-img">
+            <img src="image.jpg" alt="Profile">
+        </div>
+        <h3 class="hero-greeting" id="hero-greeting">Hello, Welcome to my page! I am</h3>
+        <h1 class="hero-name" id="hero-name"><span class="glow-text">Debanshu Ghosh</span></h1>
+        <div class="typewriter-container">
+            <span id="typewriter"></span><span style="animation: blink 1s infinite">|</span>
+        </div>
+
+        <div class="scroll-indicator">
+            <p style="font-size: 0.8rem; margin-bottom: 5px;">Scroll</p>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="section-title">Skills & Proficiency</h2>
+
+        <h3
+            style="text-align:center; margin-bottom:30px; color:var(--text-secondary); font-size: 2.5rem; text-shadow: 0 0 15px rgba(255,255,255,0.1);">
+            Languages</h3>
+        <div class="chip-container chip-gap-lg" id="lang-grid">
+            <div class="chip"><i class="fa-brands fa-python"></i> Python</div>
+            <div class="chip"><i class="fa-brands fa-java"></i> Java</div>
+            <div class="chip"><i class="fa-solid fa-c"></i> C</div>
+            <div class="chip"><i class="fa-solid fa-code"></i> C++</div>
+            <div class="chip"><i class="fa-brands fa-html5"></i> HTML</div>
+            <div class="chip"><i class="fa-brands fa-css3-alt"></i> CSS</div>
+            <div class="chip"><i class="fa-brands fa-js"></i> JavaScript</div>
+        </div>
+
+        <h3
+            style="text-align:center; margin-bottom:30px; color:var(--text-secondary); font-size: 2.5rem; text-shadow: 0 0 15px rgba(255,255,255,0.1);">
+            Tools</h3>
+        <div class="skills-grid" id="tools-grid">
+            <div class="skill-card"><i class="fa-solid fa-terminal"></i>
+                <p>VS Code</p>
+            </div>
+            <div class="skill-card"><i class="fa-brands fa-android"></i>
+                <p>Android Studio</p>
+            </div>
+            <div class="skill-card"><i class="fa-solid fa-database"></i>
+                <p>MongoDB</p>
+            </div>
+            <div class="skill-card"><i class="fa-solid fa-image"></i>
+                <p>Photoshop</p>
+            </div>
+            <div class="skill-card"><i class="fa-solid fa-calculator"></i>
+                <p>Tally</p>
+            </div>
+            <div class="skill-card"><i class="fa-solid fa-drafting-compass"></i>
+                <p>AutoCAD</p>
+            </div>
+            <div class="skill-card"><i class="fa-solid fa-note-sticky"></i>
+                <p>Obsidian</p>
+            </div>
+            <div class="skill-card"><i class="fa-solid fa-video"></i>
+                <p>Filmora</p>
+            </div>
+            <div class="skill-card"><i class="fa-solid fa-wave-square"></i>
+                <p>Audacity</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Zoology Graduate</h3>
+                    <p>B.Sc. in Zoology</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Diploma in IT</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Cyber Security</h3>
+                    <p>Self-Directed Learning & Research</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="container">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="THM-Debanshu.jpg" alt="Cert">
+                </div>
+                <div class="cert-info">
+                    <h4>Advent of Cyber</h4>
+                    <p>TryHackMe</p>
+                    <a href="#">Verify Credential <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="MongoDB.jpg" alt="Cert"></div>
+                <div class="cert-info">
+                    <h4>MongoDB Certification</h4>
+                    <p>MongoDB</p>
+                    <span class="no-verify">Verification not available</span>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="ISRO E-Learning Certificate.jpg" alt="Cert"></div>
+                <div class="cert-info">
+                    <h4>GeoData Analysis</h4>
+                    <p>ISRO</p>
+                    <span class="no-verify">Verification not available</span>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="Coursera Tally Bookkeeper Certificate.jpg" alt="Cert"></div>
+                <div class="cert-info">
+                    <h4>Professional Tally Bookkeeper</h4>
+                    <p>Accounting</p>
+                    <span class="no-verify">Verification not available</span>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="EC Council Python Certificate.png" alt="Cert">
+                </div>
+                <div class="cert-info">
+                    <h4>Python</h4>
+                    <p>Codered (EC-Council)</p>
+                    <a href="#">Verify Credential <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests" class="container">
+        <h2 class="section-title">Interests & Research</h2>
+        <div class="chip-container chip-gap-lg">
+            <div class="chip"><i class="fa-brands fa-android"></i> Android App Dev</div>
+            <div class="chip"><i class="fa-solid fa-code"></i> Web Development</div>
+            <div class="chip"><i class="fa-solid fa-film"></i> Video Editing</div>
+            <div class="chip"><i class="fa-solid fa-shield-halved"></i> Cyber Security</div>
+            <div class="chip"><i class="fa-solid fa-magnifying-glass-chart"></i> Digital Forensics</div>
+            <div class="chip"><i class="fa-solid fa-wifi"></i> Wi-Fi Pentesting</div>
+            <div class="chip"><i class="fa-solid fa-bug"></i> Vulnerability Testing</div>
+            <div class="chip"><i class="fa-solid fa-robot"></i> AI & Automation</div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-item">
+            <div class="project-img">
+                <img src="https://placehold.co/600x400/111/FFF?text=FPS+Portal" alt="FPS Portal">
+            </div>
+            <div class="project-content">
+                <h3>FPS Portal & 2.0</h3>
+                <p>A comprehensive Fees Payment System designed for streamlined transactions and record keeping.</p>
+                <a href="#" class="project-btn">Visit</a>
+            </div>
+        </div>
+
+        <div class="project-item reverse">
+            <div class="project-img">
+                <img src="https://placehold.co/600x400/111/FFF?text=Gourbongo+TV" alt="Gourbongo">
+            </div>
+            <div class="project-content">
+                <h3>Gourbongo TV</h3>
+                <p>News Article Portal delivering real-time updates with a dynamic content management backend.</p>
+                <a href="#" class="project-btn">Visit</a>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-img">
+                <img src="https://placehold.co/600x400/111/FFF?text=GB+Songbad" alt="App">
+            </div>
+            <div class="project-content">
+                <h3>GB Songbad (Android)</h3>
+                <p>Ongoing development of a news aggregator application tailored for local regions.</p>
+                <a href="#" class="project-btn">Visit</a>
+            </div>
+        </div>
+
+        <div class="project-item reverse">
+            <div class="project-img">
+                <img src="https://placehold.co/600x400/111/FFF?text=Protibimbo" alt="Electronics">
+            </div>
+            <div class="project-content">
+                <h3>Protibimbo Electronics</h3>
+                <p>Digital platform for electronics service management.</p>
+                <a href="#" class="project-btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container" style="text-align: center;">
+        <h2 class="section-title">Get in Touch</h2>
+        <p style="font-weight: bold; font-size: 1.2rem; color: #e0e0e0; margin-bottom: 30px;">Currently open for
+            Tasks on Cyber Security and Development projects.</p>
+
+        <div class="dynamic-island-container">
+            <div class="dynamic-island">
+                <!-- Facebook Icon Added -->
+                <a href="https://www.facebook.com/sarthak.dhasmana.9" target="_blank" class="social-icon"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://github.com/SarthakDhasmana" target="_blank" class="social-icon"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sarthak-dhasmana-318461230/" target="_blank" class="social-icon"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="mailto:sarthakdhasmana2004@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/sarthak_dhasmana/" target="_blank" class="social-icon"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://x.com/SarthakDhasmana" target="_blank" class="social-icon"><i
+                        class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <footer
+            style="margin-top: 60px; padding-bottom: 40px; color: #ffffff; font-size: 0.8rem; text-align: center; letter-spacing: 1px; text-shadow: 0 0 10px rgba(0,0,0,0.5);">
+            &copy; 2025 Designed and Maintained by Debanshu Ghosh.
+        </footer>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="cert-modal">
+        <span id="cert-modal-close">&times;</span>
+        <img class="modal-content" id="cert-modal-img">
+    </div>
+
+    <script>
+        // 1. INITIALIZE LENIS (Smooth Scroll)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            smooth: true
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // 2. REGISTER GSAP PLUGINS
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 3. ANIMATIONS
+
+        // --- Hero Section ---
+        const heroTl = gsap.timeline();
+        heroTl.to(".profile-img-wrapper", { opacity: 1, scale: 1, duration: 1.5, ease: "power4.out" })
+            .to("#hero-greeting", { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
+            .to("#hero-name", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, "-=0.6");
+
+        // Typewriter Effect Logic
+        // Typewriter Effect Logic
+        const rawText = "Zoologist | Life Science & Tech Enthusiast | Passionate to Cyber Security | Skilled in Programming (Python, HTML, Java, C++, MongoDB) | Diploma in IT | Certified Tally Bookkeeper | Hobby Teacher.";
+        const phrases = rawText.split('|').map(p => p.trim());
+        const typeWriterElement = document.getElementById('typewriter');
+
+        let currentPhraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentPhrase = phrases[currentPhraseIndex];
+
+            if (isDeleting) {
+                typeWriterElement.innerText = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeWriterElement.innerText = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = 50;
+
+            if (isDeleting) {
+                typeSpeed = 15; // Faster deletion
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                // Done typing current phrase
+                typeSpeed = 1000; // Pause at end of phrase
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Done deleting current phrase
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                typeSpeed = 500; // Pause before next phrase
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Start typing after hero animations
+        setTimeout(typeWriter, 2000);
+
+
+        // --- Section Titles (Reveal on Scroll) ---
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.to(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: "top 80%",
+                    end: "top 50%",
+                    scrub: 1
+                },
+                opacity: 1,
+                backgroundPosition: "0% 0%" // simple shift if we added gradient movement
+            });
+        });
+
+        // --- Skills (Staggered Fade Up) ---
+        gsap.to("#lang-grid .skill-card", {
+            scrollTrigger: { trigger: "#lang-grid", start: "top 85%" },
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "back.out(1.7)"
+        });
+
+        gsap.to("#tools-grid .skill-card", {
+            scrollTrigger: { trigger: "#tools-grid", start: "top 85%" },
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "back.out(1.7)"
+        });
+
+        // --- Education (Timeline Line Draw) ---
+        gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+            gsap.to(item, {
+                scrollTrigger: { trigger: item, start: "top 80%" },
+                opacity: 1,
+                duration: 1,
+                x: 0, // In case we want to slide them in from sides later
+                ease: "power2.out"
+            });
+        });
+
+        // --- Certifications (3D Tilt Effect + Fade In) ---
+        gsap.utils.toArray('.cert-card').forEach((card, i) => {
+            // Fade In
+            gsap.to(card, {
+                scrollTrigger: { trigger: card, start: "top 90%" },
+                opacity: 1,
+                duration: 0.8,
+                delay: i * 0.1
+            });
+
+            // 3D Tilt Interaction
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5; // Reduced to max 5deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                // Increased perspective to 2000px for subtler effect
+                card.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Reset
+                card.style.transform = `perspective(2000px) rotateX(0) rotateY(0) scale(1)`;
+            });
+        });
+
+        // --- Interests (Pop In + Floating + Scroll Parallax) ---
+        gsap.utils.toArray('.chip').forEach((chip, i) => {
+            // 1. Pop In
+            gsap.to(chip, {
+                scrollTrigger: { trigger: ".chip-container", start: "top 85%" },
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                stagger: { amount: 0.5, from: "random" },
+                ease: "back.out(1.7)"
+            });
+
+            // 2. Random Floating Animation (Bobbing) with Reduced Amplitude (Physics will handle more)
+            // INCREASED FLOAT as per user request
+            gsap.to(chip, {
+                y: "random(-20, 20)", // Increased from 5 to 20
+                x: "random(-15, 15)", // Increased from 5 to 15
+                rotation: "random(-5, 5)",
+                duration: "random(2, 4)", // Faster (was 3-5)
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+                delay: "random(0, 2)"
+            });
+
+
+        });
+
+        // --- BUBBLE REPULSION PHYSICS ---
+        // A gentle physics loop to make bubbles "ripple" away from each other
+        function bubblePhysics() {
+            const chips = document.querySelectorAll('.chip');
+            if (!chips.length) return;
+
+            const rects = [];
+            // Read all positions first (performance)
+            chips.forEach(chip => rects.push(chip.getBoundingClientRect()));
+
+            chips.forEach((chip, i) => {
+                let moveX = 0;
+                let moveY = 0;
+                const r1 = rects[i];
+                const cx1 = r1.left + r1.width / 2;
+                const cy1 = r1.top + r1.height / 2;
+
+                chips.forEach((other, j) => {
+                    if (i === j) return;
+                    const r2 = rects[j];
+                    const cx2 = r2.left + r2.width / 2;
+                    const cy2 = r2.top + r2.height / 2;
+
+                    const dx = cx1 - cx2;
+                    const dy = cy1 - cy2;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const minDist = (r1.width / 2 + r2.width / 2) + 20; // Radius + Padding
+
+                    if (dist < minDist && dist > 0) {
+                        // Repulsion Force
+                        const force = (minDist - dist) / minDist; // 0 to 1
+                        const angle = Math.atan2(dy, dx);
+
+                        // Push away
+                        moveX += Math.cos(angle) * force * 2;
+                        moveY += Math.sin(angle) * force * 2;
+                    }
+                });
+
+                // Apply Nudge via CSS Transform (additive to GSAP)
+                // Note: Direct transform override might conflict with gsap. 
+                // We'll use a CSS variable or a separate wrapper if needed. 
+                // Ideally, we tween a 'x' 'y' modifier, but simple translation works for visual nudge.
+                // To avoid conflict, we can target a separate property, but here we will try a gentle GSAP set
+                // or just modify style.transform if GSAP isn't actively overwriting every frame (yoyo is slow).
+                // Actually, GSAP controls translate. Let's use 'marginLeft/marginTop' for physics nudge to avoid conflict?
+                // Or safely, use GSAP quickSetter.
+
+                if (Math.abs(moveX) > 0.1 || Math.abs(moveY) > 0.1) {
+                    gsap.to(chip, {
+                        x: `+=${moveX}`,
+                        y: `+=${moveY}`,
+                        duration: 0.5,
+                        overwrite: "auto" // This might stop the floating. 
+                        // Better strategy: Let's stick to the visual clean up. 
+                        // If we want TRUE physics, we need to kill the yoyo and run full physics.
+                        // But user asked for "ripple". 
+                        // Let's TRY just adding margin. It's safe.
+                    });
+                }
+            });
+            // requestAnimationFrame(bubblePhysics); // Disabled for now to prevent GSAP conflict chaos.
+        }
+        // NOTE: True chaotic bubble physics + GSAP timelines is complex. 
+        // For "ripple when close", increasing the GAP (which we did) is the best static fix.
+        // If dynamic ripple is needed, we need mouse interaction. 
+        // Let's add MOUSE repulsion instead? "Apple Watch" style?
+
+        // Let's add MOUSE REPULSION for the "Ripple" effect
+        const interestSection = document.getElementById('interests');
+        if (interestSection) {
+            interestSection.addEventListener('mousemove', (e) => {
+                const chips = document.querySelectorAll('.chip');
+                chips.forEach(chip => {
+                    const rect = chip.getBoundingClientRect();
+                    const cx = rect.left + rect.width / 2;
+                    const cy = rect.top + rect.height / 2;
+
+                    const dx = e.clientX - cx;
+                    const dy = e.clientY - cy;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 150) {
+                        const force = (150 - dist) / 150;
+                        const angle = Math.atan2(dy, dx);
+                        // Move AWAY from mouse
+                        const pushX = -Math.cos(angle) * force * 30;
+                        const pushY = -Math.sin(angle) * force * 30;
+
+                        gsap.to(chip, {
+                            x: pushX,
+                            y: pushY,
+                            duration: 0.5,
+                            ease: "power2.out",
+                            overwrite: 'auto'
+                        });
+                    } else {
+                        // Return to float? Hard to resume specific float.
+                        // We will let the yoyo resume or just settle.
+                        gsap.to(chip, {
+                            x: 0,
+                            y: 0,
+                            duration: 1,
+                            ease: "elastic.out(1, 0.3)"
+                        });
+                    }
+                });
+            });
+        }
+
+        // --- Projects (Slide In) ---
+        gsap.utils.toArray('.project-item').forEach(item => {
+            gsap.fromTo(item,
+                { opacity: 0, y: 100 },
+                {
+                    scrollTrigger: { trigger: item, start: "top 80%" },
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out"
+                }
+            );
+        });
+
+        // --- Contact Icons (Wave) ---
+        gsap.to(".social-icon", {
+            scrollTrigger: { trigger: "#contact", start: "top 85%" },
+            opacity: 1,
+            y: 0,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "back.out(1.7)"
+        });
+
+        // --- Dense Star Background Animation ---
+        const canvas = document.getElementById('star-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        const stars = [];
+        const numStars = 800; // High density as requested
+
+        class Star {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.z = Math.random() * 2 + 0.5; // Depth factor
+                this.size = Math.random() * 1.5;
+                this.opacity = Math.random() * 0.8 + 0.2;
+
+                // Speed depends on depth (parallax effect)
+                this.speedX = (Math.random() - 0.5) * 0.5 * this.z;
+                this.speedY = (Math.random() - 0.5) * 0.5 * this.z;
+
+                // Ensure non-zero speed
+                if (Math.abs(this.speedX) < 0.1) this.speedX = 0.1;
+                if (Math.abs(this.speedY) < 0.1) this.speedY = 0.1;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Wrap around logic
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                // Draw star with slight glow for larger ones
+                ctx.arc(this.x, this.y, this.size * this.z * 0.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Initialize stars
+        for (let i = 0; i < numStars; i++) {
+            stars.push(new Star());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Create a slight trail effect
+            // ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            // ctx.fillRect(0, 0, width, height);
+
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // --- Certificate Modal Logic ---
+        const modal = document.getElementById("cert-modal");
+        const modalImg = document.getElementById("cert-modal-img");
+        const closeBtn = document.getElementById("cert-modal-close");
+        const certCards = document.querySelectorAll(".cert-card");
+
+        certCards.forEach(card => {
+            card.addEventListener("click", () => {
+                const imgUrl = card.getAttribute("data-img") || card.querySelector("img").src;
+                modal.style.display = "flex";
+                // GSAP Fade In
+                gsap.to(modal, { duration: 0.3, opacity: 1 });
+                modalImg.src = imgUrl;
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            gsap.to(modal, {
+                duration: 0.3,
+                opacity: 0,
+                onComplete: () => { modal.style.display = "none"; }
+            });
+        });
+
+        // Close on outside click
+        window.addEventListener("click", (e) => {
+            if (e.target == modal) {
+                gsap.to(modal, {
+                    duration: 0.3,
+                    opacity: 0,
+                    onComplete: () => { modal.style.display = "none"; }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
