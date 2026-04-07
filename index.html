@@ -430,6 +430,45 @@
             text-shadow: 0 0 10px #47A248;
         }
 
+        /* Card 10: Ollama (Silver/Grey) */
+        .skill-card:nth-child(10) {
+            border-color: #f5f5f7;
+            box-shadow: 0 0 20px rgba(245, 245, 247, 0.2), inset 0 0 10px rgba(245, 245, 247, 0.1);
+            margin-top: 40px;
+            animation-delay: 2.2s;
+        }
+
+        .skill-card:nth-child(10) i {
+            color: #f5f5f7;
+            text-shadow: 0 0 10px #f5f5f7;
+        }
+
+        /* Card 11: GitHub (Dark Grey/White) */
+        .skill-card:nth-child(11) {
+            border-color: #6e5494;
+            box-shadow: 0 0 20px rgba(110, 84, 148, 0.2), inset 0 0 10px rgba(110, 84, 148, 0.1);
+            margin-top: 10px;
+            animation-delay: 1.5s;
+        }
+
+        .skill-card:nth-child(11) i {
+            color: #6e5494;
+            text-shadow: 0 0 10px #6e5494;
+        }
+
+        /* Card 12: Git (Orange) */
+        .skill-card:nth-child(12) {
+            border-color: #F05032;
+            box-shadow: 0 0 20px rgba(240, 80, 50, 0.2), inset 0 0 10px rgba(240, 80, 50, 0.1);
+            margin-top: -30px;
+            animation-delay: 3s;
+        }
+
+        .skill-card:nth-child(12) i {
+            color: #F05032;
+            text-shadow: 0 0 10px #F05032;
+        }
+
 
         .skill-card:hover {
             transform: scale(1.15) rotate(5deg) !important;
@@ -739,8 +778,48 @@
             color: #aa00ff;
         }
 
-        /* General for Languages (More than 8) */
-        .chip:nth-child(n+9) {
+        .chip:nth-child(9) {
+            border-color: rgba(0, 200, 255, 0.5);
+            box-shadow: inset 0 0 20px rgba(0, 200, 255, 0.2), 0 0 10px rgba(0, 200, 255, 0.3);
+            transform: rotate(-1deg) translateY(5px);
+        }
+
+        .chip:nth-child(9) i {
+            color: #00c8ff;
+        }
+
+        .chip:nth-child(10) {
+            border-color: rgba(255, 0, 150, 0.5);
+            box-shadow: inset 0 0 20px rgba(255, 0, 150, 0.2), 0 0 10px rgba(255, 0, 150, 0.3);
+            transform: rotate(3deg) translateY(-4px);
+        }
+
+        .chip:nth-child(10) i {
+            color: #ff0096;
+        }
+
+        .chip:nth-child(11) {
+            border-color: rgba(100, 255, 0, 0.5);
+            box-shadow: inset 0 0 20px rgba(100, 255, 0, 0.2), 0 0 10px rgba(100, 255, 0, 0.3);
+            transform: rotate(-2deg) translateY(6px);
+        }
+
+        .chip:nth-child(11) i {
+            color: #64ff00;
+        }
+
+        .chip:nth-child(12) {
+            border-color: rgba(41, 151, 255, 0.5);
+            box-shadow: inset 0 0 20px rgba(41, 151, 255, 0.2), 0 0 10px rgba(41, 151, 255, 0.3);
+            transform: rotate(1deg) translateY(-5px);
+        }
+
+        .chip:nth-child(12) i {
+            color: #2997ff;
+        }
+
+        /* General for Languages (More than 12) */
+        .chip:nth-child(n+13) {
             border-color: rgba(255, 255, 255, 0.5);
             box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
         }
@@ -800,6 +879,22 @@
         .timeline-item:nth-child(3)::after {
             border-color: #ff2950;
             box-shadow: 0 0 15px #ff2950;
+        }
+
+        /* 4. AI Research - Magenta Glow */
+        .timeline-item:nth-child(4) .timeline-content {
+            border-bottom: 4px solid #ff00ff;
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2), inset 0 0 20px rgba(255, 0, 255, 0.05);
+        }
+
+        .timeline-item:nth-child(4) h3 {
+            color: #ff00ff;
+            text-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+        }
+
+        .timeline-item:nth-child(4)::after {
+            border-color: #ff00ff;
+            box-shadow: 0 0 15px #ff00ff;
         }
 
 
@@ -1259,6 +1354,33 @@
             <div class="skill-card"><i class="fa-solid fa-wave-square"></i>
                 <p>Audacity</p>
             </div>
+            <div class="skill-card"><i class="fa-solid fa-microchip"></i>
+                <p>Ollama</p>
+            </div>
+            <div class="skill-card"><i class="fa-brands fa-github"></i>
+                <p>GitHub</p>
+            </div>
+            <div class="skill-card"><i class="fa-brands fa-git-alt"></i>
+                <p>Git</p>
+            </div>
+        </div>
+
+        <h3
+            style="text-align:center; margin-bottom:30px; color:var(--text-secondary); font-size: 2.5rem; text-shadow: 0 0 15px rgba(255,255,255,0.1);">
+            AI Models Worked On</h3>
+        <div class="chip-container chip-gap-lg" id="ai-models-grid">
+            <div class="chip"><i class="fa-solid fa-robot"></i> Claude (Anthropic)</div>
+            <div class="chip"><i class="fa-solid fa-bolt"></i> OpenAI GPT-4</div>
+            <div class="chip"><i class="fa-solid fa-star"></i> Google Gemini</div>
+            <div class="chip"><i class="fa-solid fa-gem"></i> Google Gemma</div>
+            <div class="chip"><i class="fa-solid fa-microchip"></i> Microsoft Phi-3</div>
+            <div class="chip"><i class="fa-solid fa-dragon"></i> Alibaba Qwen</div>
+            <div class="chip"><i class="fa-solid fa-wind"></i> Mistral AI</div>
+            <div class="chip"><i class="fa-solid fa-paw"></i> Meta Llama 3</div>
+            <div class="chip"><i class="fa-solid fa-feather"></i> TII Falcon</div>
+            <div class="chip"><i class="fa-solid fa-image"></i> Stable Diffusion</div>
+            <div class="chip"><i class="fa-solid fa-brain"></i> DeepSeek-V3</div>
+            <div class="chip"><i class="fa-solid fa-code"></i> DeepSeek-Coder</div>
         </div>
     </section>
 
@@ -1283,12 +1405,60 @@
                     <p>Self-Directed Learning & Research</p>
                 </div>
             </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>AI & Gen-AI Research</h3>
+                    <p>Researching focus on AI in Education, RAG Based Systems and Chatbot Generation.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="certifications" class="container">
         <h2 class="section-title">Certifications</h2>
         <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="Oracle AI Foundation Associate eCertificate_page-0001.jpg" alt="Cert">
+                </div>
+                <div class="cert-info">
+                    <h4>Oracle</h4>
+                    <p>AI Foundation Associate eCertificate</p>
+                    <a href="#">Verify Credential<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="Keggle.png" alt="Cert">
+                </div>
+                <div class="cert-info">
+                    <h4>Artificial Intelligence</h4>
+                    <p>Keggle X Google</p>
+                    <a href="#">Verify Credential<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="GUVI Ai.jpg" alt="Cert"></div>
+                <div class="cert-info">
+                    <h4>GUVI Ai Certification</h4>
+                    <p>GUVI & Skill India</p>
+                    <a href="#">Verify Credential <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="ISRO E-Learning Certificate.jpg" alt="Cert"></div>
+                <div class="cert-info">
+                    <h4>GeoData Analysis</h4>
+                    <p>ISRO</p>
+                    <span class="no-verify">Verification not available</span>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="Bharat Isro Hackathon.jpeg" alt="Cert"></div>
+                <div class="cert-info">
+                    <h4>Bharat Antarishk Hackathon</h4>
+                    <p>ISRO (Bharat)</p>
+                    <span class="no-verify">Verification not available</span>
+                </div>
+            </div>
             <div class="cert-card">
                 <div class="cert-img-box"><img src="THM-Debanshu.jpg" alt="Cert">
                 </div>
@@ -1307,19 +1477,19 @@
                 </div>
             </div>
             <div class="cert-card">
-                <div class="cert-img-box"><img src="ISRO E-Learning Certificate.jpg" alt="Cert"></div>
-                <div class="cert-info">
-                    <h4>GeoData Analysis</h4>
-                    <p>ISRO</p>
-                    <span class="no-verify">Verification not available</span>
-                </div>
-            </div>
-            <div class="cert-card">
                 <div class="cert-img-box"><img src="Coursera Tally Bookkeeper Certificate.jpg" alt="Cert"></div>
                 <div class="cert-info">
                     <h4>Professional Tally Bookkeeper</h4>
                     <p>Accounting</p>
                     <span class="no-verify">Verification not available</span>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-img-box"><img src="Javascript course.jpg" alt="Cert"></div>
+                <div class="cert-info">
+                    <h4>Javascript</h4>
+                    <p>Codered (EC-Council)</p>
+                    <a href="#">Verify Credential <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="cert-card">
@@ -1329,24 +1499,6 @@
                     <h4>Python</h4>
                     <p>Codered (EC-Council)</p>
                     <a href="#">Verify Credential <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img-box"><img src="Keggle.png" alt="Cert">
-                </div>
-                <div class="cert-info">
-                    <h4>Artificial Intelegence</h4>
-                    <p>Keggle X Google</p>
-                    <a href="#">Verify Credential<i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-img-box"><img src="Oracle AI Foundation Associate eCertificate_page-0001.jpg" alt="Cert">
-                </div>
-                <div class="cert-info">
-                    <h4>Oracle</h4>
-                    <p>AI Foundation Associate eCertificate</p>
-                    <a href="#">Verify Credential<i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -1363,10 +1515,13 @@
             <div class="chip"><i class="fa-solid fa-wifi"></i> Wi-Fi Pentesting</div>
             <div class="chip"><i class="fa-solid fa-bug"></i> Vulnerability Testing</div>
             <div class="chip"><i class="fa-solid fa-robot"></i> AI & Automation</div>
+            <div class="chip"><i class="fa-solid fa-graduation-cap"></i> AI in Education</div>
+            <div class="chip"><i class="fa-solid fa-network-wired"></i> RAG Based Systems</div>
+            <div class="chip"><i class="fa-solid fa-comments"></i> Chatbot Generation</div>
         </div>
     </section>
 
-    <section id="projects" class="container">
+    <section id="projects" class="container" style="display: none;">
         <h2 class="section-title">Projects</h2>
 
         <div class="project-item">
@@ -1476,7 +1631,7 @@
 
         // Typewriter Effect Logic
         // Typewriter Effect Logic
-        const rawText = "Zoologist | Life Science & Tech Enthusiast | Passionate to Cyber Security | Skilled in Programming (Python, HTML, Java, C++, MongoDB) | Diploma in IT | Certified Tally Bookkeeper | Hobby Teacher.";
+        const rawText = "Zoologist | Life Science & Tech Enthusiast | Passionate to Cyber Security | AI in Education & RAG Research | Skilled in Programming (Python, HTML, Java, C++, MongoDB) | Diploma in IT | Certified Tally Bookkeeper | Hobby Teacher.";
         const phrases = rawText.split('|').map(p => p.trim());
         const typeWriterElement = document.getElementById('typewriter');
 
@@ -1534,8 +1689,17 @@
         });
 
         // --- Skills (Staggered Fade Up) ---
-        gsap.to("#lang-grid .skill-card", {
+        gsap.to("#lang-grid .chip", {
             scrollTrigger: { trigger: "#lang-grid", start: "top 85%" },
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: "back.out(1.7)"
+        });
+
+        gsap.to("#ai-models-grid .chip", {
+            scrollTrigger: { trigger: "#ai-models-grid", start: "top 85%" },
             y: 0,
             opacity: 1,
             stagger: 0.1,
